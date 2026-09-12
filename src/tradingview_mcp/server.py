@@ -125,6 +125,12 @@ mcp = FastMCP(
     ),
 )
 
+# ── Railway/public hosting: allow non-localhost Host headers ─────────────────
+from mcp.server.transport_security import TransportSecuritySettings
+
+mcp.settings.transport_security = TransportSecuritySettings(
+    enable_dns_rebinding_protection=False,
+)
 
 # ── Screener tools ─────────────────────────────────────────────────────────────
 
